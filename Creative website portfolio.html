@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> My Simple Portfolio | MY SIMPLE</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    header nav ul li {
+      margin: 0 1em;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire section */
+  z-index: -1; /* Places the image behind the text content */
+}
+
+.hero-content {
+  color: #fff;
+  z-index: 1; /* Places the text content above the image */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Adds contrast to the text for readability */
+}
+
+.hero h2 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.hero button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.7em 1.5em;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.hero button:hover {
+  background: #0056b3;
+}
+
+
+    button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    /* Sections */
+    section {
+      padding: 2em 1em;
+      text-align: center;
+    }
+
+    .about, .resume, .achievements, .works, .contact {
+      background: #fff;
+      margin: 1em 0;
+      border-radius: 8px;
+      padding: 2em;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5em; /* Adjust spacing between the image and text */
+  flex-wrap: wrap; /* Ensures responsive behavior */
+  max-width: 800px;
+  margin: 0 auto; /* Centers the content */
+} 
+
+.about-image {
+  flex-shrink: 0;
+  width: 100px; /* Set the width to 100px */
+  height: 100px; /* Set the height to 100px */
+  border-radius: 50%; /* Makes the image circular like a profile picture */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  object-fit: cover; /* Ensures the image fits perfectly within the circle */
+}
+
+.about-text {
+  flex: 1;
+  font-size: 1em;
+  color: #333;
+  text-align: left;
+}
+
+
+    .resume-content, .works-content {
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .resume-content ul, .achievements ul {
+      list-style: disc;
+      margin-left: 2em;
+    }
+
+    .works {
+  padding: 4em 2em;
+  text-align: center;
+}
+
+.works-content {
+  display: flex;
+  justify-content: space-between; /* Spreads out the items evenly */
+  gap: 2em; /* Adds space between the items */
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.work-item {
+  flex: 1 1 calc(50% - 2em); /* Each item takes up 50% minus gap for spacing */
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.work-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
+.work-item h3 {
+  margin-top: 1em;
+  font-size: 1.5em;
+  color: #007bff;
+}
+
+.work-item p {
+  font-size: 1em;
+  color: #555;
+}
+
+
+    input, textarea {
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      background: #222;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>My Simple Portfolio</h1>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <img src="hero.jpg" alt="Hero Image" class="hero-image">
+    <div class="hero-content">
+      <h2>Welcome to My Portfolio</h2>
+      <p>Explore my journey, achievements, and professional works.</p>
+      <button onclick="scrollToSection('about')">Learn More About Me</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <div class="about-content"></div>
+    <img src="about.jpg" alt="About" class="about-image">
+    <p>
+      Hi my name is Ken Rabilas,I am currently an IT student who has a passion for learning and expanding my knowledge about 
+      web developing
+    </p>
+    <p>
+      When I'm not coding, I enjoy exploring new tools and trends in technology to stay ahead of the curve,I also like and love
+      playing basketball and chess
+    </p>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="resume">
+    <h2>Online Resume</h2>
+    <div class="resume-content">
+      
+      <h3>Education</h3>
+      <ul>
+        <li><strong>Bachelor Of Science In System And Technology</strong> from Philippine Christian University (2022–Present)</li>
+        <li><strong>Makati High School</strong> from (2015-2020)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Works Section -->
+  <section id="works" class="works">
+    <h2>My Works</h2>
+    <div class="works-content">
+      <!-- Work Item 1 -->
+      <div class="work-item">
+        <img src="work1.png" alt="Work 1" class="work-image">
+        <h3>BirthMonth Calendar</h3>
+        <p>My Professor,assigned our class to create our Birthmonth Calendar based on our birthmonth</p>
+      </div>
+      <!-- Work Item 2 -->
+      <div class="work-item">
+        <img src="work2.png" alt="Work 2" class="work-image">
+        <h3>Multiplication Table</h3>
+        <p>Our Professor assigned us to create a Multiplication Table using HTML during class.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2024 [Ken Rabilas]. All Rights Reserved.</p>
+    <p>Facebook:Ken Rabilas</p>
+    <p>IG:kentooshiftyy</p>
+    <p>Contact Number:09452810011</p>
+  </footer>
+
+  <script>
+    // Scroll to section function
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Form submission
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for your message!');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
